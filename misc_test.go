@@ -5,7 +5,6 @@
 package docker
 
 import (
-	"github.com/dotcloud/docker"
 	"net/http"
 	"net/url"
 	"reflect"

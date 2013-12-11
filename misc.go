@@ -5,17 +5,15 @@
 package docker
 
 import (
-	"bytes"
+	//"bytes"
 	"encoding/json"
-	"github.com/dotcloud/docker"
-	"github.com/dotcloud/docker/engine"
-	"io"
+	//"io"
 )
 
 // Version returns version information about the docker server.
 //
 // See http://goo.gl/IqKNRE for more details.
-func (c *Client) Version() (*engine.Env, error) {
+/*func (c *Client) Version() (*engine.Env, error) {
 	body, _, err := c.do("GET", "/version", nil)
 	if err != nil {
 		return nil, err
@@ -29,17 +27,17 @@ func (c *Client) Version() (*engine.Env, error) {
 		return nil, err
 	}
 	return remoteVersion, nil
-}
+}*/
 
 // Info returns system-wide information, like the number of running containers.
 //
 // See http://goo.gl/LOmySw for more details.
-func (c *Client) Info() (*docker.APIInfo, error) {
+func (c *Client) Info() (*APIInfo, error) {
 	body, _, err := c.do("GET", "/info", nil)
 	if err != nil {
 		return nil, err
 	}
-	var info docker.APIInfo
+	var info APIInfo
 	err = json.Unmarshal(body, &info)
 	if err != nil {
 		return nil, err

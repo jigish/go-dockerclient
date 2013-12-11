@@ -12,8 +12,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/dotcloud/docker/term"
-	"github.com/dotcloud/docker/utils"
 	"io"
 	"io/ioutil"
 	"net"
@@ -162,7 +160,7 @@ func (c *Client) stream(method, path string, in io.Reader, out io.Writer) error 
 	return nil
 }
 
-func (c *Client) hijack(method, path string, setRawTerminal bool, in *os.File, errStream io.Writer, out io.Writer) error {
+/*func (c *Client) hijack(method, path string, setRawTerminal bool, in *os.File, errStream io.Writer, out io.Writer) error {
 	req, err := http.NewRequest(method, c.getURL(path), nil)
 	if err != nil {
 		return err
@@ -187,7 +185,7 @@ func (c *Client) hijack(method, path string, setRawTerminal bool, in *os.File, e
 		if setRawTerminal {
 			_, err = io.Copy(out, br)
 		} else {
-			_, err = utils.StdCopy(out, errStream, br)
+			_, err = StdCopy(out, errStream, br)
 		}
 		errStdout <- err
 	}()
@@ -208,7 +206,7 @@ func (c *Client) hijack(method, path string, setRawTerminal bool, in *os.File, e
 		return err
 	}
 	return nil
-}
+}*/
 
 func (c *Client) getURL(path string) string {
 	urlStr := strings.TrimRight(c.endpoint, "/")

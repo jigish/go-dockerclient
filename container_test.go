@@ -7,7 +7,6 @@ package docker
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/dotcloud/docker"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
